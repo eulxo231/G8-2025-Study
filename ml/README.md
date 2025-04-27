@@ -156,6 +156,8 @@ K-Nearest Neighbors (KNN) is a simple and widely used machine learning algorithm
 
 ### ✅ Clustering : K-means
 
+![](img/image-2.png)
+
 #### ⚙️ sample code
 
 ```py
