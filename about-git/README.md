@@ -30,6 +30,7 @@ GitHub is a web-based platform that hosts Git repositories. It enables collabora
 | `git add .`               | Add all new or changed files to staging              |
 | `git commit -m "message"` | Commit staged changes with a message                 |
 | `git push`                | Push your local commits to the GitHub repository     |
+| `git pull`                |                                                      |
 
 ### ✅ Key GitHub Terms
 
