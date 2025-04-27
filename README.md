@@ -1,3 +1,7 @@
 # G8-2025-Study
 
-Overview of CS in 2025
+### 학습 내용
+
+1. ![git & github](https://github.com/eulxo231/G8-2025-Study/tree/main/about-git)
+
+2. ML :

@@ -208,6 +208,8 @@ plt.show()
 
 ### ✅ Prediction : Linear Regression
 
+![](img/image-1.png)
+
 #### ⚙️ sample code
 
 ```py
