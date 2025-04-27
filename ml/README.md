@@ -142,14 +142,116 @@ KNN 정확도: 1.0000
 예측된 품종: setosa
 ```
 
-#### ⚙️ What is KNN?
+#### ⚙️ Summary of KNN
 
 K-Nearest Neighbors (KNN) is a simple and widely used machine learning algorithm. It classifies new data points based on the labels of the K closest data points.
 
-#### ⚙️ How KNN Works:
+#### ⚙️ How KNN Works
 
-When a new data point is given, find the K nearest data points in the existing dataset.
+1. When a new data point is given, find the K nearest data points in the existing dataset.
 
-Determine the most common class (species) among those K points.
+2. Determine the most common class (species) among those K points.
 
-Assign the new data point to that class.
+3. Assign the new data point to that class.
+
+### ✅ Clustering : K-means
+
+#### ⚙️ sample code
+
+```py
+from sklearn import datasets
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+
+iris = datasets.load_iris()
+
+X = iris.data[:, 2:]  # 꽃잎 길이와 꽃잎 너비
+y = iris.target  # 실제 품종 정보
+
+kmeans = KMeans(n_clusters=3, random_state=21)  # n_clusters=3은 3개의 군집으로 분할
+kmeans.fit(X)  # KMeans 모델 학습
+
+y_pred = kmeans.labels_  # KMeans 알고리즘이 예측한 클러스터 레이블
+
+centers = kmeans.cluster_centers_  # 군집 중심점
+
+fig, axes = plt.subplots(1, 2, figsize=(7, 3))  # 두 개의 서브 플롯
+
+axes[0].scatter(X[:, 0], X[:, 1], c=y, cmap='Set1_r', s=10)  # 실제 품종 레이블에 따른 색상
+axes[0].set_xlabel('Petal length')  # x축 라벨
+axes[0].set_ylabel('Petal width')  # y축 라벨
+axes[0].set_title('Actual')  # 제목: 실제 값
+
+axes[1].scatter(X[:, 0], X[:, 1], c=y_pred, cmap='Set1', s=10)  # KMeans 예측값에 따른 색상
+axes[1].set_xlabel('Petal length')  # x축 라벨
+axes[1].set_ylabel('Petal width')  # y축 라벨
+axes[1].set_title('Predicted')  # 제목: KMeans 예측 값
+
+axes[1].scatter(centers[:, 0], centers[:, 1], c='blue', marker='x', s=50, label='Centroids')  # 군집 중심점
+axes[1].legend()  # 범례 표시
+
+plt.tight_layout()  # 그래프 간격 조정
+plt.show()
+```
+
+#### ⚙️ Summary of K-means
+
+#### ⚙️ How K-means Works
+
+1. 주어진 데이터셋에서 K개의 군집을 찾는 알고리즘.
+
+2. 처음 K개의 중심점을 랜덤으로 선택하고, 각 데이터 포인트를 가장 가까운 중심점에 할당.
+
+3. 각 군집에 속하는 데이터 포인트들의 평균을 계산하여 새로운 중심점을 갱신.
+
+4. 군집 중심점이 더 이상 변하지 않거나 일정 기준을 만족할 때까지 2단계와 3단계를 반복.
+
+### ✅ Prediction : Linear Regression
+
+#### ⚙️ sample code
+
+```py
+import yfinance as yf
+import pandas as pd
+
+stock_data = yf.download('AAPL', start='2020-01-01', end='2025-01-01') # 애플
+stock_data.head()
+
+import numpy as np
+from sklearn.linear_model import LinearRegression
+import matplotlib.pyplot as plt
+
+# 날짜를 숫자로 변환 (단순히 날짜를 '일'로 처리)
+stock_data['Date'] = stock_data.index
+stock_data['Date'] = stock_data['Date'].map(pd.Timestamp.toordinal)
+
+# 종가와 날짜 데이터 준비
+X = stock_data['Date'].values.reshape(-1, 1)  # 독립 변수: 날짜
+y = stock_data['Close'].values  # 종속 변수: 종가
+
+# 선형 회귀 모델 학습
+model = LinearRegression()
+model.fit(X, y)
+
+# 예측할 미래 날짜 생성 (예시로 2023년 12월 31일까지)
+future_dates = pd.date_range(start='2020-01-01', periods=365*7, freq='D')
+future_dates_ordinal = future_dates.map(pd.Timestamp.toordinal).values.reshape(-1, 1)
+
+# 예측 결과
+predictions = model.predict(future_dates_ordinal)
+
+# 예측된 값과 실제 값을 비교하기 위한 시각화
+plt.figure(figsize=(10, 6))
+plt.plot(stock_data.index, stock_data['Close'], label='Actual', color='blue')  # 실제 종가
+plt.plot(future_dates, predictions, label='Predicted', color='red')  # 예측 종가
+plt.xlabel('Date')
+plt.ylabel('Close Price')
+plt.title('Stock Price Prediction using Linear Regression')
+plt.legend()
+plt.grid(True)
+plt.show()
+```
+
+#### ⚙️ Summary of Linear Regression
+
+- 주어진 데이터를 설명하기 가장 적합한 직선의 방정식을 찾아 데이터를 설명하거나 예측
