@@ -24,12 +24,12 @@ GitHub is a web-based platform that hosts Git repositories. It enables collabora
 
 ### ✅ Git & GitHub Commands
 
-| Command | Description |
-| ----------------------``--- | ---------------------------------------------------- |
-| `git clone <url>`        | Clone a repository from GitHub to your local machine |
-|`git add .`              | Add all new or changed files to staging              |
-|`git commit -m "message"`| Commit staged changes with a message                 |
-|`git push` | Push your local commits to the GitHub repository |
+| Command                   | Description                                          |
+| ------------------------- | ---------------------------------------------------- |
+| `git clone <url>`         | Clone a repository from GitHub to your local machine |
+| `git add .`               | Add all new or changed files to staging              |
+| `git commit -m "message"` | Commit staged changes with a message                 |
+| `git push`                | Push your local commits to the GitHub repository     |
 
 ### ✅ Key GitHub Terms
 
