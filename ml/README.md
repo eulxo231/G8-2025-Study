@@ -32,19 +32,19 @@
 
 ### ✅ Numpy
 
-다차원 배열(Matrix)의 빠른 연산
+- 다차원 배열(Matrix)의 빠른 연산
 
 ### ✅ Pandas
 
-데이터에 대한 표 형식의 표현
+- 데이터에 대한 표 형식의 표현
 
 ### ✅ Matplotlib
 
-데이터 그래프 시각화 처리
+- 데이터 그래프 시각화 처리
 
 ## 🏷️ Part 3 : Boxplot
 
-# 📦 Boxplot Interpretation
+![](img/image.png)
 
 ### ✅ Terms of boxplot
 
@@ -58,3 +58,98 @@
 | **Interquartile Range (IQR)** | The range between Q1 and Q3                                                                                  |
 | **Whisker**                   | Extends from the box to indicate the range of the data, up to the smallest and largest values within 1.5 IQR |
 | **Outlier**                   | Data points beyond the minimum and maximum; if any exist, they are plotted beyond the whiskers               |
+
+### ✅ boxplot sample code
+
+```py
+import matplotlib.pyplot as plt
+import numpy as np
+
+np.random.seed(10) # numpy random init
+data = np.random.randn(50) * 10
+data = np.append(data, [50, -40])
+
+plt.boxplot(data)
+
+plt.title("Box Plot with Outliers")
+plt.ylabel("Value")
+plt.show()
+```
+
+## 🏷️ Part 4 : Dataset
+
+| 간단한 실습을 위해 iris 데이터셋 사용
+
+### ✅ iris dataset
+
+| Sepal Length (cm) | Sepal Width (cm) | Petal Length (cm) | Petal Width (cm) | Species |
+| ----------------- | ---------------- | ----------------- | ---------------- | ------- |
+| 5.1               | 3.5              | 1.4               | 0.2              | setosa  |
+| 4.9               | 3.0              | 1.4               | 0.2              | setosa  |
+| 4.7               | 3.2              | 1.3               | 0.2              | setosa  |
+| 4.6               | 3.1              | 1.5               | 0.2              | setosa  |
+| 5.0               | 3.6              | 1.4               | 0.2              | set     |
+
+## 🏷️ Part 5 : ML
+
+### ✅ Classification : KNN
+
+#### ⚙️ sample code
+
+```py
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score
+
+# 1 아이리스 데이터 로드
+iris = load_iris() # 150개
+X = iris.data # 특징 데이터 (꽃받침, 꽃잎의 길이와 너비)
+y = iris.target # 품종 (0: Setosa, 1: Versicolor, 2: Virginica)
+
+# 2 데이터 분할 (훈련 데이터 80%, 테스트 데이터 20%)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# 3 데이터 스케일링 (KNN은 거리 기반 알고리즘이므로 정규화 필수)
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+# 4 KNN 모델 학습 (K=5)
+knn = KNeighborsClassifier(n_neighbors=5)
+knn.fit(X_train, y_train)
+
+# 5 예측 및 평가
+y_pred = knn.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+print(f"KNN 정확도: {accuracy:.4f}")
+
+# 6 샘플 데이터 예측 (새로운 붓꽃 데이터 입력)
+new_sample = np.array([[5.1, 3.5, 1.4, 0.2]]) # Setosa와 유사한 데이터
+new_sample_scaled = scaler.transform(new_sample)
+predicted_class = knn.predict(new_sample_scaled)
+print(f"예측된 품종: {iris.target_names[predicted_class][0]}")
+```
+
+**output**
+
+```
+KNN 정확도: 1.0000
+예측된 품종: setosa
+```
+
+#### ⚙️ What is KNN?
+
+K-Nearest Neighbors (KNN) is a simple and widely used machine learning algorithm. It classifies new data points based on the labels of the K closest data points.
+
+#### ⚙️ How KNN Works:
+
+When a new data point is given, find the K nearest data points in the existing dataset.
+
+Determine the most common class (species) among those K points.
+
+Assign the new data point to that class.
