@@ -1,6 +1,6 @@
 # About Git
 
-> `Git`은 VCS. `Github`는 git 관리 도구
+> `Git`: VCS. `Github`: tool for managing multiple Gits
 
 ## 🏷️ Part 1: Core Concepts
 
