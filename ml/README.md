@@ -8,35 +8,36 @@
 
 ### ✅ Machine Learning vs Deep Learning
 
-| Properties        | Machine Learning                                          | Deep learning                         |
+| **Category**        | **Machine Learning**                                          | **Deep learning**                         |
 | ----------------  | -------------------------------------------------------   |   ------------------------------------------------ |
-| Definition        | Development of AI that can learn and adapt via algorithm   | Subset of Machine Learning that uses Neural Networks|
-| Characteristics   | Predicts by finding patterns from a data                  | Automatically extracts characteristics via multilayered Neural Networks. |
-| 데이터 의존성      | ↓ 낮음                                                     | ↑ 높음                                               |
-| 학습 속도          | 빠름                                                       | 느림                                                 | 
-| 모델 예시          | SVM, 랜덤 포레스트, KNN, 선형 회귀, 로지스틱 회귀 등          | CNN, RNN, LSTM, GAN, Transformer 등                  |
-| 응용 분야          | 추천 시스템, 질병 예측, 금융 모델링                           | 이미지 인식, 음성 인식, 자율주행, 번역, 생성 AI        |
+| **Definition**        | Development of AI that can learn and adapt via algorithm  | Subset of Machine Learning that uses Neural Networks|
+| **Characteristics**   | Predicts by finding patterns from a data                        | Automatically extracts characteristics via multilayered Neural Networks. |
+| **Data Dependency**   | ↓ Low                                                           | ↑ High                                               |
+| **Learning speed**    | Fast                                                            | Slow                                             | 
+| **Model Examples**    | SVM, Random Forest, KNN, Linear Regression, Logistic Regression, etc | CNN, RNN, LSTM, GAN, Transformer, etc                  |
+| **Application Areas**          | Recommendation systems, Predicting diseases, financial modeling | Image recognition, Voice recognition, autonomous driving, translation, generative AI        |
 
 ### ✅ Supervised vs Unsupervised Learning
 
-| 구분        | 지도학습 (Supervised Learning)                                          | 비지도학습 (Unsupervised Learning)                 |
-| ----------- | ----------------------------------------------------------------------- | -------------------------------------------------- |
-| 정의        | 정답(라벨)이 있는 데이터를 학습                                         | 정답(라벨) 없이 데이터를 학습                      |
-| 목적        | 입력 데이터를 보고 정답을 예측                                          | 데이터의 숨겨진 패턴을 찾음                        |
-| 입력 데이터 | (입력값, 정답) 쌍이 존재                                                | 입력값만 존재 (정답 없음)                          |
-| 출력 값     | 특정 라벨(분류) 또는 수치 값(회귀) 예측                                 | 그룹(클러스터) 할당 또는 패턴 발견                 |
-| 대표 모델   | KNN, SVM, 결정 트리, 랜덤 포레스트, 선형 회귀, 로지스틱 회귀, 신경망 등 | K-Means, DBSCAN, PCA, 군집 분석, 연관 규칙 분석 등 |
-| 예시        | 스팸 메일 분류, 손글씨 숫자 인식, 가격 예측                             | 고객 세분화, 이상 탐지, 추천 시스템                |
+| Category          | **Supervised Learning**                                                                         | **Unsupervised Learning**                                        |
+| ----------------- | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| **Definition**    | Learning from data that includes labels (answers)                                               | Learning from data **without** labels|
+| **Goal**          | Predict the correct label/output based on input data                                            | Discover hidden patterns within the data|
+| **Input Data**    | Pairs of (input, label) are available                                                           | Only input values are present (no labels) |
+| **Output**        | Predict specific labels (classification) or numerical values (regression)                       | Discover groups (clusters) or underlying patterns |
+| **Common Models** | KNN, SVM, Decision Tree, Random Forest, Linear Regression, Logistic Regression, Neural Networks | K-Means, DBSCAN, PCA, Cluster Analysis, Association Rules |
+| **Examples**      | Spam classification, handwritten digit recognition, price prediction                            | Customer segmentation, anomaly detection, recommendation systems |
+
 
 ## 🏷️ Part 2: Libraries
 
 ### ✅ Numpy
 
-- 다차원 배열(Matrix)의 빠른 연산
+- Fast calculation of the Matrix
 
 ### ✅ Pandas
 
-- 데이터에 대한 표 형식의 표현
+- Showing a graph version of a data
 
 ### ✅ Matplotlib
 
@@ -246,8 +247,8 @@ predictions = model.predict(future_dates_ordinal)
 
 # Visualized prices vs predicted prices
 plt.figure(figsize=(10, 6))
-plt.plot(stock_data.index, stock_data['Close'], label='Actual', color='blue')  # 실제 종가
-plt.plot(future_dates, predictions, label='Predicted', color='red')  # 예측 종가
+plt.plot(stock_data.index, stock_data['Close'], label='Actual', color='blue')  # Actual closing prices
+plt.plot(future_dates, predictions, label='Predicted', color='red')  # Predicted prices
 plt.xlabel('Date')
 plt.ylabel('Close Price')
 plt.title('Stock Price Prediction using Linear Regression')
