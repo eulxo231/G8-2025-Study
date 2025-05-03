@@ -167,33 +167,33 @@ import matplotlib.pyplot as plt
 
 iris = datasets.load_iris()
 
-X = iris.data[:, 2:]  # 꽃잎 길이와 꽃잎 너비
-y = iris.target  # 실제 품종 정보
+X = iris.data[:, 2:]  # Petal length and petal width
+y = iris.target  # Actual species labels
 
-kmeans = KMeans(n_clusters=3, random_state=21)  # n_clusters=3은 3개의 군집으로 분할
-kmeans.fit(X)  # KMeans 모델 학습
+kmeans = KMeans(n_clusters=3, random_state=21)  # n_clusters=3 means dividing into 3 clusters
+kmeans.fit(X)  # Learn the KMeans model
 
-y_pred = kmeans.labels_  # KMeans 알고리즘이 예측한 클러스터 레이블
+y_pred = kmeans.labels_  # Cluster labels predicted by KMeans
 
-centers = kmeans.cluster_centers_  # 군집 중심점
+centers = kmeans.cluster_centers_  # Cluster centroids
 
-fig, axes = plt.subplots(1, 2, figsize=(7, 3))  # 두 개의 서브 플롯
+fig, axes = plt.subplots(1, 2, figsize=(7, 3))  # Two subplots side by side
 
-axes[0].scatter(X[:, 0], X[:, 1], c=y, cmap='Set1_r', s=10)  # 실제 품종 레이블에 따른 색상
-axes[0].set_xlabel('Petal length')  # x축 라벨
-axes[0].set_ylabel('Petal width')  # y축 라벨
-axes[0].set_title('Actual')  # 제목: 실제 값
+axes[0].scatter(X[:, 0], X[:, 1], c=y, cmap='Set1_r', s=10)  # Color by actual labels
+axes[0].set_xlabel('Petal length')  # x-axis label
+axes[0].set_ylabel('Petal width')  # y-axis label
+axes[0].set_title('Actual')  # Title: actual species
 
-axes[1].scatter(X[:, 0], X[:, 1], c=y_pred, cmap='Set1', s=10)  # KMeans 예측값에 따른 색상
-axes[1].set_xlabel('Petal length')  # x축 라벨
-axes[1].set_ylabel('Petal width')  # y축 라벨
-axes[1].set_title('Predicted')  # 제목: KMeans 예측 값
+axes[1].scatter(X[:, 0], X[:, 1], c=y_pred, cmap='Set1', s=10) # Color by KMeans predictions
+axes[1].set_xlabel('Petal length')  # x-axis label
+axes[1].set_ylabel('Petal width')  # y-axis label
+axes[1].set_title('Predicted')  # Title: predicted clusters for KMeans
 
-axes[1].scatter(centers[:, 0], centers[:, 1], c='blue', marker='x', s=50, label='Centroids')  # 군집 중심점
-axes[1].legend()  # 범례 표시
+axes[1].scatter(centers[:, 0], centers[:, 1], c='blue', marker='x', s=50, label='Centroids')  # Mark centroids
+axes[1].legend()  # Show legend
 
-plt.tight_layout()  # 그래프 간격 조정
-plt.show()
+plt.tight_layout()  # Adjust spacing between plots
+plt.show() # Display the plots
 ```
 
 #### ⚙️ Summary of K-means
@@ -218,33 +218,33 @@ plt.show()
 import yfinance as yf
 import pandas as pd
 
-stock_data = yf.download('AAPL', start='2020-01-01', end='2025-01-01') # 애플
+stock_data = yf.download('AAPL', start='2020-01-01', end='2025-01-01') #Apple from 2020-1-1 to 2025-1-1
 stock_data.head()
 
 import numpy as np
 from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 
-# 날짜를 숫자로 변환 (단순히 날짜를 '일'로 처리)
+# Convert the date to number (treat dates as ordinal numbers)
 stock_data['Date'] = stock_data.index
 stock_data['Date'] = stock_data['Date'].map(pd.Timestamp.toordinal)
 
-# 종가와 날짜 데이터 준비
-X = stock_data['Date'].values.reshape(-1, 1)  # 독립 변수: 날짜
-y = stock_data['Close'].values  # 종속 변수: 종가
+# Prepare closing prices and date values
+X = stock_data['Date'].values.reshape(-1, 1)  # Independent variable: date
+y = stock_data['Close'].values  # Dependent variable: closing price
 
-# 선형 회귀 모델 학습
+# Train linear regression model
 model = LinearRegression()
 model.fit(X, y)
 
-# 예측할 미래 날짜 생성 (예시로 2023년 12월 31일까지)
+# Create future dates to predict (example: up to 7 years from 2020)
 future_dates = pd.date_range(start='2020-01-01', periods=365*7, freq='D')
 future_dates_ordinal = future_dates.map(pd.Timestamp.toordinal).values.reshape(-1, 1)
 
-# 예측 결과
+# Results from predictiosn
 predictions = model.predict(future_dates_ordinal)
 
-# 예측된 값과 실제 값을 비교하기 위한 시각화
+# Visualized prices vs predicted prices
 plt.figure(figsize=(10, 6))
 plt.plot(stock_data.index, stock_data['Close'], label='Actual', color='blue')  # 실제 종가
 plt.plot(future_dates, predictions, label='Predicted', color='red')  # 예측 종가
