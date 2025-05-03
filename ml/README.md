@@ -8,14 +8,14 @@
 
 ### ✅ Machine Learning vs Deep Learning
 
-| 구분          | 머신러닝 (Machine Learning)                          | 딥러닝 (Deep Learning)                          |
-| ------------- | ---------------------------------------------------- | ----------------------------------------------- |
-| 정의          | 데이터를 기반으로 학습하는 AI 기법                   | 신경망(Neural Network) 기반의 학습              |
-| 특징          | 데이터에서 패턴을 찾아 예측                          | 다층 신경망을 사용하여 자동으로 특징 추출       |
-| 데이터 의존성 | ↓ 낮음                                               | ↑ 높음                                          |
-| 학습 속도     | 빠름                                                 | 느림                                            |
-| 모델 예시     | SVM, 랜덤 포레스트, KNN, 선형 회귀, 로지스틱 회귀 등 | CNN, RNN, LSTM, GAN, Transformer 등             |
-| 응용 분야     | 추천 시스템, 질병 예측, 금융 모델링                  | 이미지 인식, 음성 인식, 자율주행, 번역, 생성 AI |
+| Properties        | Machine Learning                                          | Deep learning                         |
+| ----------------  | -------------------------------------------------------   |   ------------------------------------------------ |
+| Definition        | Development of AI that can learn and adapt via algorithm   | Subset of Machine Learning that uses Neural Networks|
+| Characteristics   | Predicts by finding patterns from a data                  | Automatically extracts characteristics via multilayered Neural Networks. |
+| 데이터 의존성      | ↓ 낮음                                                     | ↑ 높음                                               |
+| 학습 속도          | 빠름                                                       | 느림                                                 | 
+| 모델 예시          | SVM, 랜덤 포레스트, KNN, 선형 회귀, 로지스틱 회귀 등          | CNN, RNN, LSTM, GAN, Transformer 등                  |
+| 응용 분야          | 추천 시스템, 질병 예측, 금융 모델링                           | 이미지 인식, 음성 인식, 자율주행, 번역, 생성 AI        |
 
 ### ✅ Supervised vs Unsupervised Learning
 
@@ -171,9 +171,9 @@ X = iris.data[:, 2:]  # Petal length and petal width
 y = iris.target  # Actual species labels
 
 kmeans = KMeans(n_clusters=3, random_state=21)  # n_clusters=3 means dividing into 3 clusters
-kmeans.fit(X)  # Learn the KMeans model
+kmeans.fit(X)  # Learn the K-Means model
 
-y_pred = kmeans.labels_  # Cluster labels predicted by KMeans
+y_pred = kmeans.labels_  # Cluster labels predicted by K-Means
 
 centers = kmeans.cluster_centers_  # Cluster centroids
 
@@ -184,10 +184,10 @@ axes[0].set_xlabel('Petal length')  # x-axis label
 axes[0].set_ylabel('Petal width')  # y-axis label
 axes[0].set_title('Actual')  # Title: actual species
 
-axes[1].scatter(X[:, 0], X[:, 1], c=y_pred, cmap='Set1', s=10) # Color by KMeans predictions
+axes[1].scatter(X[:, 0], X[:, 1], c=y_pred, cmap='Set1', s=10) # Color by K-Means predictions
 axes[1].set_xlabel('Petal length')  # x-axis label
 axes[1].set_ylabel('Petal width')  # y-axis label
-axes[1].set_title('Predicted')  # Title: predicted clusters for KMeans
+axes[1].set_title('Predicted')  # Title: predicted clusters for K-Means
 
 axes[1].scatter(centers[:, 0], centers[:, 1], c='blue', marker='x', s=50, label='Centroids')  # Mark centroids
 axes[1].legend()  # Show legend
@@ -200,9 +200,9 @@ plt.show() # Display the plots
 
 #### ⚙️ How K-means Works
 
-1. 주어진 데이터셋에서 K개의 군집을 찾는 알고리즘.
+1. An algorithm that finds K amount of clusters in the given dataset.
 
-2. 처음 K개의 중심점을 랜덤으로 선택하고, 각 데이터 포인트를 가장 가까운 중심점에 할당.
+2. 처음 K개의 중심점을 랜덤으로 선택하고, 각 데이터 포인트를 가장 가까운 중심점에 할당. First, it randomly selects K midpoints, and 
 
 3. 각 군집에 속하는 데이터 포인트들의 평균을 계산하여 새로운 중심점을 갱신.
 
