@@ -1,6 +1,6 @@
 # G8-2025-Study
 
-### 학습 내용
+### Study Logs
 
 #### 📒 Git & Github
 
