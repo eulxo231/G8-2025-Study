@@ -6,10 +6,10 @@
 
 [LINK](https://github.com/eulxo231/G8-2025-Study/tree/main/about-git)
 
-> `Git`, `Github`에 대한 학습 내용 정리 및 `VCS`의 이해
+> Summarization of what I learnt about `Git`, `Github`, as well as understanding `VCS`
 
 #### 📒 ML
 
 [LINK](https://github.com/eulxo231/G8-2025-Study/tree/main/ml)
 
-> `AI`, `ML`, `DL`에 대한 구분 및 `ML`의 분류, 군집화, 예측에 대한 실습
+> Differenciating between `AI`, `ML`, `DL`, more about `ML`
