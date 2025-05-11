@@ -75,4 +75,12 @@ pygame.quit()
 sys.exit()
 ```
 
+### ✅ Colors 
 
+There are 2 types of colors combinations:
+
+**CMYK** : Combination of Cyan, Magenta, Yellow, and Key(Black). Mainly used for color painting
+
+**RBG** : Composition of the color Red, Blue, and Green. Used for displaying various colors on digital screens.
+
+![](img/image-2.png)
