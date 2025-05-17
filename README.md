@@ -17,3 +17,5 @@
 #### 📒 Animation
 
 [LINK](https://github.com/eulxo231/G8-2025-Study/tree/main/Animation)
+
+> Basic knowledge of how animation works, and colors
