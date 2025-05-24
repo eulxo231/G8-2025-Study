@@ -13,6 +13,7 @@ This folder contains study materials and simulations that cover fundamental conc
 ### 2. Physics of Motion
 - **Accelerated Motion**: Study of velocity change over time under constant acceleration.
 - **Projectile Motion**: Motion of an object thrown into space, influenced only by gravity and initial velocity.
+- **Gravity**: Force that acts downwards towards an object.
 
 ### 3. Simulation
 - **Gravity Simulation**: A Pygame-based simulation demonstrating the motion of an object affected by gravity, with basic collision and energy loss.
@@ -74,3 +75,4 @@ while running:
 
 pygame.quit()
 sys.exit()
+```
