@@ -1,6 +1,7 @@
 import pygame
 import sys
 import math
+import random
 from Object import Object
 
 # 기본 설정
@@ -35,8 +36,25 @@ player = pygame.Rect(100, GROUND_Y - 50, 50, 50)
 velocity_y = 0
 grounded = True
 
+def spawn_code():
+    RATE_SINGLE = 10
+    RATE_DOUBLE = 900
+    
+    roll_1 = random.randint(0,999)
+    roll_2 = random.randint(0,999)
+
+    if roll_1 < RATE_SINGLE:
+        if roll_2 < RATE_DOUBLE:
+            return 2
+        else:
+            return 1
+    else:
+        return 0
+
+
 # 게임 루프
-while True:
+running = True
+while running:
     clock.tick(FPS)
     screen.fill(WHITE)
 
@@ -77,6 +95,21 @@ while True:
         object.draw(screen)
         if object.is_out_of_screen():
             object_list.remove(object)
+
+    if not object_list:
+        code = spawn_code()
+        if code == 2:
+            first = Object(WIDTH, GROUND_Y - object_size, object_size, object_size, (0, 0, 0), OBJECT_SPEED_STANDARD)
+            second = Object(WIDTH + object_size + 5, GROUND_Y - object_size, object_size, object_size, (0, 0, 0), OBJECT_SPEED_STANDARD)
+            second.speed = first.speed
+            object_list.append(first)
+            object_list.append(second)
+        if code == 1:
             object_list.append(Object(WIDTH, GROUND_Y - object_size, object_size, object_size, (0, 0, 0), OBJECT_SPEED_STANDARD))
+
+    #collision_check
+    for object in object_list:
+        if object.get_object_rect().colliderect(player):
+            running = False
 
     pygame.display.flip()
