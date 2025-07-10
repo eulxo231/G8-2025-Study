@@ -2,9 +2,9 @@
 
 ## 📘 Topics covered:
 
-### 1. NLP (Natural Language Processing)
-### 2. CV (Computer Vision)
-### 3. Different categories of AI
+#### 1. NLP (Natural Language Processing)
+#### 2. CV (Computer Vision)
+#### 3. Different categories of AI
 
 ## NLP (Natural Language Processing)
 
