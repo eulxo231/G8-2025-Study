@@ -25,3 +25,7 @@
 [LINK](https://github.com/eulxo231/G8-2025-Study/tree/main/Physics%20%26%20Computing%20Concepts)
 
 > Relation of physics to computing concepts
+
+#### 📒 AI (Artificial Intelligence)
+
+[LINK]()
