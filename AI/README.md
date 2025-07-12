@@ -42,6 +42,13 @@
 
  Main examples: **MCTS**, **RL**
 
+ ## 📗 Finance and Data Analytics AI
+
+ Includes Stock price prediction, fraud detection, credit score evaluation
+
+ Main examples: **Time series analysis (RNN, LSTM), ensemble learning (Random Forest, XGBoost)**
+
+
  
 
 
