@@ -54,7 +54,7 @@
 
 #### NLP is a field of computer science that enables computers to comprehend, interpret, and generate human language. Essentially, it's how computers "speak" and "understand" our language. 
 
-## Main Purposes
+## 📘 Main Purposes
 
 ### 4. Voice and Conversational Systems
 
@@ -94,7 +94,7 @@
 
 #### CV is a field of artificial intelligence where that enables computers to interpret and understand images in a way that is similar to humans. It involves acquiring, processing, analyzing, and understanding digital images and videos to extract meaningful information.
 
-### Main Purposes 
+### 📘 Main Purposes 
 
 #### 1. Image Recognition and Analysis
 
