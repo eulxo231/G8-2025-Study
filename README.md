@@ -31,3 +31,7 @@
 [LINK](https://github.com/eulxo231/G8-2025-Study/tree/main/AI)
 
 > Contains information Vision AI and NLP(Natural Language Processing)
+
+#### 📒 Crawling 
+
+[LINK](https://github.com/eulxo231/G8-2025-Study/tree/main/Crawling)
