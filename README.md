@@ -35,3 +35,5 @@
 #### 📒 Crawling 
 
 [LINK](https://github.com/eulxo231/G8-2025-Study/tree/main/Crawling)
+
+> Basic idea of what crawling in web development is
