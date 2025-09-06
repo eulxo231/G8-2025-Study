@@ -37,3 +37,9 @@
 [LINK](https://github.com/eulxo231/G8-2025-Study/tree/main/Crawling)
 
 > Basic idea of what crawling in web development is
+
+#### 📒 Database and Servers
+
+[LINK](https://github.com/eulxo231/G8-2025-Study/tree/main/Database%20%26%20Servers)
+
+> Includes information about the meaning of databases and servers, and its usage.
