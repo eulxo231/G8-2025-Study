@@ -1,0 +1,128 @@
+/* CSS file */
+
+/* Utility */
+.hidden { display: none !important; }
+
+/* Disabled deck visual */
+.deck.disabled { cursor: not-allowed; }
+.deck.disabled .deck-back { opacity: 0.35; filter: grayscale(60%); box-shadow: 0 3px 10px rgba(0,0,0,0.15); }
+
+/* Reset and base styles */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { font-family: 'Arial', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; color: #333; }
+
+/* Page management */
+.page { display: none; min-height: 100vh; padding: 20px; }
+.page.active { display: block; }
+
+.container { max-width: 1200px; margin: 0 auto; text-align: center; }
+
+/* Typography */
+.title { font-size: 3rem; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); margin-bottom: 10px; font-weight: bold; }
+.subtitle { font-size: 1.2rem; color: #fff; margin-bottom: 40px; opacity: 0.9; }
+
+/* Fortune selection */
+.fortune-selection { background: rgba(255,255,255,0.95); padding: 30px; border-radius: 20px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+.fortune-selection h2 { font-size: 1.5rem; margin-bottom: 20px; color: #333; }
+.fortune-options { display: flex; gap: 20px; justify-content: center; }
+
+.fortune-btn { padding: 15px 30px; font-size: 1.1rem; border: none; border-radius: 50px; cursor: pointer; transition: all 0.25s ease; font-weight: bold; background: linear-gradient(45deg, #e8ecf7, #dfe5f4); color: #2d2d2d; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.fortune-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,0.15); }
+.fortune-btn.selected { background: linear-gradient(45deg, #6c5ce7, #a29bfe) !important; color: #ffffff !important; transform: none; box-shadow: 0 0 0 3px rgba(255,255,255,0.9) inset, 0 0 16px rgba(0,0,0,0.25); }
+.fortune-btn.selected:hover { transform: none; box-shadow: 0 0 0 3px rgba(255,255,255,1) inset, 0 0 18px rgba(0,0,0,0.28); }
+
+/* Card drawing area */
+.card-drawing-area { display: flex; flex-direction: column; align-items: center; gap: 40px; margin-bottom: 40px; }
+.deck-container { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+
+/* Controls row */
+.draw-controls { display: flex; align-items: center; gap: 12px; }
+.remaining-counter { color: #ffffff; font-weight: 700; background: rgba(0,0,0,0.25); padding: 8px 14px; border-radius: 999px; box-shadow: inset 0 0 0 2px rgba(255,255,255,0.25); }
+
+/* Reversed visuals: subtler, prettified background without badge */
+.drawn-card.reversed .card-front { position: relative; }
+.drawn-card.reversed .card-front::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(214, 48, 49, 0.28), rgba(225, 112, 85, 0.18));
+  pointer-events: none;
+}
+.drawn-card.reversed .card-front img { transform: rotate(180deg) translateZ(0.1px); }
+
+.result-card.reversed { position: relative; }
+.result-card.reversed::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(214, 48, 49, 0.22), rgba(225, 112, 85, 0.12));
+  pointer-events: none;
+}
+.result-card.reversed img { transform: rotate(180deg); }
+
+/* Reversed badge and orientation */
+.rev-badge { display: inline-block; padding: 4px 8px; font-size: 0.75rem; font-weight: 700; color: #fff; background: linear-gradient(45deg, #d63031, #e17055); border-radius: 999px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); margin-top: 6px; }
+.drawn-card.reversed .card-front img { transform: rotate(180deg) translateZ(0.1px); }
+.result-card.reversed img { transform: rotate(180deg); }
+
+/* Deck styling */
+.deck { position: relative; width: 120px; height: 180px; cursor: pointer; transition: transform 0.3s ease; }
+.deck:hover { transform: translateY(-5px); }
+.deck-back { position: absolute; width: 100%; height: 100%; background: linear-gradient(45deg, #2c3e50, #34495e); border: 3px solid #fff; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+.deck-back:nth-child(1) { top: 0; left: 0; z-index: 3; }
+.deck-back:nth-child(2) { top: 3px; left: 3px; z-index: 2; }
+.deck-back:nth-child(3) { top: 6px; left: 6px; z-index: 1; }
+
+/* Draw button */
+.draw-btn { padding: 15px 30px; font-size: 1.1rem; background: linear-gradient(45deg, #00b894, #00cec9); color: white; border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.draw-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+.draw-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+/* Drawn cards area */
+.drawn-cards { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; min-height: 230px; }
+
+/* Wrapper for a drawn card (card + name) */
+.drawn-card { display: flex; flex-direction: column; align-items: center; gap: 10px; perspective: 1000px; }
+
+.card { width: 120px; height: 180px; position: relative; transition: transform 0.6s ease; transform-style: preserve-3d; transform-origin: center center; will-change: transform; }
+.card.flipped { transform: rotateY(180deg); }
+
+.card-front, .card-back { position: absolute; top: 0; left: 0; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+.card-back { background: linear-gradient(45deg, #2c3e50, #34495e); border: 3px solid #fff; }
+.card-front { background: linear-gradient(45deg, #f8f9fa, #e9ecef); border: 3px solid #fff; transform: rotateY(180deg); display: flex; align-items: center; justify-content: center; }
+.card-front img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; display: block; backface-visibility: hidden; transform: translateZ(0.1px); }
+
+/* Name label under the card */
+.card-name { min-height: 24px; color: #fff; font-weight: 600; letter-spacing: 0.2px; opacity: 0; transform: translateY(6px); transition: all 0.3s ease; }
+.card-name.show { opacity: 1; transform: translateY(0); }
+
+/* Confirm button */
+.confirm-btn { padding: 18px 40px; font-size: 1.2rem; background: linear-gradient(45deg, #6c5ce7, #a29bfe); color: white; border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; font-weight: bold; box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+.confirm-btn:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.4); }
+.confirm-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+/* Page 2 styles */
+.fortune-type-display { background: rgba(255,255,255,0.95); padding: 20px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+.fortune-type-display h2 { color: #333; font-size: 1.8rem; }
+.result-cards { display: flex; gap: 20px; justify-content: center; margin-bottom: 40px; flex-wrap: wrap; }
+.result-card { background: rgba(255,255,255,0.95); padding: 20px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center; min-width: 200px; }
+.result-card img { width: 80px; height: 120px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
+.result-card h4 { color: #333; margin-bottom: 10px; font-size: 1.1rem; }
+.result-card p { color: #666; font-size: 0.9rem; line-height: 1.4; }
+
+.fortune-interpretation { background: rgba(255,255,255,0.95); padding: 30px; border-radius: 20px; margin-bottom: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: left; }
+.fortune-interpretation h3 { color: #333; margin-bottom: 20px; font-size: 1.5rem; text-align: center; }
+.interpretation-text { color: #555; line-height: 1.8; font-size: 1.1rem; }
+
+.restart-btn { padding: 15px 30px; font-size: 1.1rem; background: linear-gradient(45deg, #fd79a8, #fdcb6e); color: white; border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.restart-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+
+/* Animations */
+@keyframes cardDraw { 0% { transform: translateX(-100px); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+.card.drawing { animation: cardDraw 0.6s ease-out forwards; }
+
+/* Responsive design */
+@media (max-width: 768px) { .title { font-size: 2rem; } .fortune-options { flex-direction: column; align-items: center; } .drawn-cards { gap: 15px; } .card { width: 100px; height: 150px; } .deck { width: 100px; height: 150px; } }

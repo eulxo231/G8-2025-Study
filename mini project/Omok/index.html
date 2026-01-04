@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omok Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Omok Game</h1>
+        <div class="game-info">
+            <div class="current-player">
+                Current Player: <span id="current-player">Black</span>
+            </div>
+        </div>
+        <div class="board-container">
+            <div id="game-board" class="game-board"></div>
+        </div>
+        <div class="controls">
+            <button id="reset-btn">Reset Game</button>
+        </div>
+    </div>
+
+    <!-- Win Screen Modal -->
+    <div id="win-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="win-message">Player Wins!</h2>
+            <button id="rematch-btn">Rematch</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

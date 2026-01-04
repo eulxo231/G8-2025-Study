@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 운세</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="input-page">
+            <h1 class="title">🔮 오늘의 운세</h1>
+            <div class="input-section">
+                <label for="birthDate" class="input-label">생년월일을 선택해주세요</label>
+                <input type="date" id="birthDate" class="birth-input" required>
+                <button onclick="showFortune()" class="fortune-btn">✨ 운세보기</button>
+            </div>
+        </div>
+
+        <div id="result-page" class="result-section">
+            <h1 class="title">🔮 오늘의 운세</h1>
+            
+            <div class="fortune-card">
+                <div class="fortune-title">🌟 총 운세</div>
+                <div class="fortune-content" id="total-fortune"></div>
+                <div class="stars" id="total-stars"></div>
+            </div>
+
+            <div class="fortune-card">
+                <div class="fortune-title">💼 사업운</div>
+                <div class="fortune-content" id="business-fortune"></div>
+                <div class="stars" id="business-stars"></div>
+            </div>
+
+            <div class="fortune-card">
+                <div class="fortune-title">💕 연애운</div>
+                <div class="fortune-content" id="love-fortune"></div>
+                <div class="stars" id="love-stars"></div>
+            </div>
+
+            <div class="fortune-card">
+                <div class="fortune-title">💰 금전운</div>
+                <div class="fortune-content" id="money-fortune"></div>
+                <div class="stars" id="money-stars"></div>
+            </div>
+
+            <button onclick="goBack()" class="back-btn">🔄 다시하기</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

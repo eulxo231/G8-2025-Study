@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarot Reading</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Page 1: Draw cards and choose reading type -->
+    <div id="page1" class="page active">
+        <div class="container">
+            <h1 class="title">Tarot Reading</h1>
+            <p class="subtitle">Draw 3 cards to see your reading</p>
+
+            <!-- Card draw area (first) -->
+            <div class="card-drawing-area">
+                <div class="deck-container">
+                    <div class="deck" id="deck">
+                        <div class="deck-back"></div>
+                        <div class="deck-back"></div>
+                        <div class="deck-back"></div>
+                    </div>
+                    <div class="draw-controls">
+                        <button class="draw-btn" id="drawBtn" disabled>Draw Card</button>
+                        <span class="remaining-counter" id="remainingCounter">Cards remaining: 3</span>
+                    </div>
+                </div>
+
+                <div class="drawn-cards" id="drawnCards">
+                    <!-- Drawn cards appear here -->
+                </div>
+            </div>
+
+            <!-- Reading type selection (later) -->
+            <div class="fortune-selection hidden" id="fortuneSelection">
+                <h2>Which reading would you like?</h2>
+                <div class="fortune-options">
+                    <button class="fortune-btn" data-fortune="love">Love</button>
+                    <button class="fortune-btn" data-fortune="money">Money</button>
+                </div>
+            </div>
+
+            <!-- Confirm button -->
+            <button class="confirm-btn" id="confirmBtn" disabled>Show Reading</button>
+        </div>
+    </div>
+
+    <!-- Page 2: Cards and reading result -->
+    <div id="page2" class="page">
+        <div class="container">
+            <h1 class="title">Your Reading</h1>
+
+            <!-- Selected reading type -->
+            <div class="fortune-type-display">
+                <h2 id="fortuneTypeTitle">Love</h2>
+            </div>
+
+            <!-- Drawn cards -->
+            <div class="result-cards" id="resultCards">
+                <!-- Result cards appear here -->
+            </div>
+
+            <!-- Reading interpretation -->
+            <div class="fortune-interpretation">
+                <h3>Interpretation</h3>
+                <div class="interpretation-text" id="interpretationText">
+                    <!-- The reading interpretation will appear here -->
+                </div>
+            </div>
+
+            <!-- Restart button -->
+            <button class="restart-btn" id="restartBtn">Restart</button>
+        </div>
+    </div>
+
+    <script src="script.js?v=english-2"></script>
+</body>
+</html>
